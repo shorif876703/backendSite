@@ -15,8 +15,8 @@ app.use(cors());
 app.use(express.json());
 
 // Increase JSON body limit
-app.use(express.json({ limit: "10mb" }));
-app.use(express.urlencoded({ limit: "10mb", extended: true }));
+app.use(express.json({ limit: "20mb" }));
+app.use(express.urlencoded({ limit: "20mb", extended: true }));
 
 app.use(express.static("public/uploads"));
 app.use("/api/auth", authRouter);
