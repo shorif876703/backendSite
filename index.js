@@ -56,8 +56,8 @@ app.use(
 );
 
 // ✅ 2️⃣ JSON body limit বাড়াও
-app.use(express.json({ limit: "10mb" }));
-app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+app.use(express.json({ limit: "20mb" }));
+app.use(express.urlencoded({ extended: true, limit: "20mb" }));
 
 // ✅ 3️⃣ Static files serve
 app.use(express.static("public/uploads"));
