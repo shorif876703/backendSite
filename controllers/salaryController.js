@@ -27,8 +27,8 @@ const addSalary = async (req, res) => {
 const getSalary = async (req, res) => {
   try {
     const { id, role } = req.params;
-
     let salary;
+
     if (role === "admin") {
       salary = await Salary.find({ employeId: id }).populate(
         "employeId",
