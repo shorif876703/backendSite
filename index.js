@@ -40,19 +40,20 @@ import salaryRouter from "./routes/salary.js";
 import leaveRouter from "./routes/leave.js";
 import settingRouter from "./routes/setting.js";
 import dashboardRouter from "./routes/dashboard.js";
+import dotenv from "dotenv";
 import connectToDatabase from "./db/db.js";
 
+dotenv.config();
 connectToDatabase();
 const app = express();
 
 // ✅ 1️⃣ CORS কনফিগার করো সঠিকভাবে
 app.use(
   cors({
-    origin: ["https://frontend-site-mongo-db-atlast.vercel.app"],
-
-    // চাইলে নির্দিষ্ট origin দিতে পারো, যেমন "https://yourfrontend.vercel.app"
-    // methods: ["GET", "POST", "PUT", "DELETE"],
-    // allowedHeaders: ["Content-Type", "Authorization"],
+    origin: [
+      "https://frontend-site-mongo-db-atlast.vercel.app",
+      "http://localhost:5173",
+    ],
     credentials: true,
   })
 );
