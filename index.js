@@ -48,7 +48,9 @@ const app = express();
 // ✅ 1️⃣ CORS কনফিগার করো সঠিকভাবে
 app.use(
   cors({
-    origin: "https://frontend-site-mongo-db-atlast.vercel.app", // চাইলে নির্দিষ্ট origin দিতে পারো, যেমন "https://yourfrontend.vercel.app"
+    origin: ["https://frontend-site-mongo-db-atlast.vercel.app",
+
+    ] // চাইলে নির্দিষ্ট origin দিতে পারো, যেমন "https://yourfrontend.vercel.app"
     // methods: ["GET", "POST", "PUT", "DELETE"],
     // allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
