@@ -3,7 +3,7 @@ import path from "path";
 import Employe from "../models/Employe.js";
 import User from "../models/User.js";
 import bcrypt from "bcrypt";
-import Department from "../models/Department.js";
+import cloudinary from "../utils/cloudinary.js";
 
 const storage = multer.diskStorage({
   destination: (req, file, cd) => {
@@ -32,6 +32,15 @@ const addEmploye = async (req, res) => {
       role,
     } = req.body;
 
+    let photoUrl = "";
+    if (req.file) {
+      // Cloudinary তে upload
+      const uploadResult = await cloudinary.uploader.upload(req.file.path, {
+        folder: "employees",
+      });
+      photoUrl = uploadResult.secure_url;
+    }
+
     const user = await User.findOne({ email });
     if (user) {
       return res
@@ -59,6 +68,7 @@ const addEmploye = async (req, res) => {
       designation,
       department,
       salary,
+      photo: photoUrl,
     });
 
     await newEmploye.save();
